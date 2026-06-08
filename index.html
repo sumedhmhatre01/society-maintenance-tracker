@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Society Tracker</title>
+
+<script src="https://cdn.tailwindcss.com"></script>
+
+<script>
+tailwind.config = {
+  darkMode: 'class',
+  theme: {
+    extend: {
+      colors: {
+        primary:'#7c3aed',
+        secondary:'#4f46e5',
+        accent:'#06b6d4'
+      }
+    }
+  }
+}
+</script>
+
+<link rel="stylesheet" href="assets/css/animations.css">
+</head>
+
+<body class="min-h-screen bg-slate-950 overflow-hidden">
+
+<div class="absolute inset-0">
+
+<div class="blob blob-1"></div>
+<div class="blob blob-2"></div>
+
+</div>
+
+<div class="relative flex items-center justify-center min-h-screen px-5">
+
+<div class="glass-card w-full max-w-md p-8">
+
+<div class="text-center mb-8">
+
+<h1 class="text-4xl font-bold text-white">
+Society Tracker
+</h1>
+
+<p class="text-slate-400 mt-2">
+Premium Maintenance Management
+</p>
+
+</div>
+
+<form id="loginForm" class="space-y-5">
+
+<input
+id="email"
+type="email"
+placeholder="Email"
+class="input-field"
+required>
+
+<div class="relative">
+
+<input
+id="password"
+type="password"
+placeholder="Password"
+class="input-field"
+required>
+
+<button
+type="button"
+id="togglePassword"
+class="absolute right-4 top-3 text-slate-400">
+👁
+</button>
+
+</div>
+
+<div class="flex justify-between text-sm">
+
+<label class="text-slate-300">
+<input type="checkbox">
+ Remember Me
+</label>
+
+<a href="#" class="text-cyan-400">
+Forgot Password?
+</a>
+
+</div>
+
+<button
+class="btn-primary"
+type="submit">
+
+Login
+
+</button>
+
+</form>
+
+</div>
+
+</div>
+
+<script type="module" src="assets/js/auth/login.js"></script>
+
+</body>
+</html>

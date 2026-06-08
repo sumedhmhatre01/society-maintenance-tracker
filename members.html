@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Members</title>
+
+<script src="https://cdn.tailwindcss.com"></script>
+
+<link rel="stylesheet" href="assets/css/animations.css">
+
+</head>
+
+<body class="dashboard-bg min-h-screen text-white">
+
+<div id="sidebar"></div>
+
+<main class="ml-72 p-8">
+
+<div class="flex justify-between items-center mb-8">
+
+<div>
+
+<h1 class="text-5xl font-bold">
+Members
+</h1>
+
+<p class="text-slate-400 mt-2">
+Manage Society Members
+</p>
+
+</div>
+
+<button
+id="addMemberBtn"
+class="
+px-5 py-3
+rounded-xl
+bg-gradient-to-r
+from-violet-600
+to-cyan-500
+font-semibold">
+
++ Add Member
+
+</button>
+
+</div>
+
+<div class="stat-card mb-6">
+
+<input
+id="searchInput"
+type="text"
+placeholder="Search members..."
+class="
+w-full
+bg-transparent
+outline-none
+text-white">
+
+</div>
+
+<div class="stat-card">
+
+<div class="overflow-x-auto">
+
+<table class="w-full">
+
+<thead>
+
+<tr class="border-b border-white/10">
+
+<th class="text-left py-4">
+Name
+</th>
+
+<th class="text-left py-4">
+Flat
+</th>
+
+<th class="text-left py-4">
+Wing
+</th>
+
+<th class="text-left py-4">
+Phone
+</th>
+
+<th class="text-left py-4">
+Maintenance
+</th>
+
+<th class="text-left py-4">
+Actions
+</th>
+
+</tr>
+
+</thead>
+
+<tbody id="membersTable">
+
+</tbody>
+
+</table>
+
+</div>
+
+</div>
+
+</main>
+
+<!-- MODAL -->
+
+<div
+id="memberModal"
+class="
+fixed inset-0
+hidden
+items-center
+justify-center
+bg-black/60
+backdrop-blur-sm">
+
+<div
+class="
+w-full
+max-w-lg
+stat-card">
+
+<h2
+id="modalTitle"
+class="text-2xl font-bold mb-6">
+
+Add Member
+
+</h2>
+
+<form id="memberForm">
+
+<input
+type="hidden"
+id="memberId">
+
+<input
+id="memberName"
+placeholder="Name"
+class="input-modal"
+required>
+
+<input
+id="flatNo"
+placeholder="Flat No"
+class="input-modal"
+required>
+
+<input
+id="wing"
+placeholder="Wing"
+class="input-modal"
+required>
+
+<input
+id="phone"
+placeholder="Phone"
+class="input-modal">
+
+<input
+id="maintenance"
+placeholder="Maintenance Amount"
+type="number"
+class="input-modal"
+required>
+
+<div class="flex gap-3 mt-6">
+
+<button
+type="submit"
+class="
+px-5 py-3
+rounded-xl
+bg-gradient-to-r
+from-violet-600
+to-cyan-500
+font-semibold">
+
+Save Member
+
+</button>
+
+<button
+type="button"
+id="closeModal"
+class="
+px-5 py-3
+rounded-xl
+bg-slate-700
+hover:bg-slate-600">
+
+Cancel
+
+</button>
+
+</div>
+
+</form>
+
+</div>
+
+</div>
+
+<script type="module">
+
+import "./assets/js/auth/authGuard.js";
+
+import { renderSidebar }
+from "./assets/js/components/sidebar.js";
+
+document
+.getElementById("sidebar")
+.innerHTML =
+renderSidebar();
+
+</script>
+
+<script
+type="module"
+src="assets/js/members/members.js">
+</script>
+
+</body>
+
+</html>

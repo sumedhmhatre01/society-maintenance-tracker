@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>Payments</title>
+
+<script src="https://cdn.tailwindcss.com"></script>
+
+<link rel="stylesheet"
+href="assets/css/animations.css">
+
+</head>
+
+<body class="dashboard-bg min-h-screen text-white">
+
+<div id="sidebar"></div>
+
+<main class="ml-72 p-8">
+
+<!-- HEADER -->
+
+<div
+class="
+flex
+justify-between
+items-center
+mb-8">
+
+<div>
+
+<h1
+class="
+text-5xl
+font-bold">
+
+Payments
+
+</h1>
+
+<p
+class="
+text-slate-400
+mt-2">
+
+Track Maintenance Payments
+
+</p>
+
+</div>
+
+<button
+id="refreshBtn"
+class="
+px-5 py-3
+rounded-xl
+bg-gradient-to-r
+from-violet-600
+to-cyan-500
+font-semibold">
+
+Refresh
+
+</button>
+
+</div>
+
+<!-- FILTERS -->
+
+<div
+class="
+grid
+grid-cols-1
+md:grid-cols-3
+gap-6
+mb-6">
+
+<div class="stat-card">
+
+<label
+class="
+block
+mb-2">
+
+Month
+
+</label>
+
+<select
+id="monthFilter"
+class="input-modal">
+
+<option value="1">
+January
+</option>
+
+<option value="2">
+February
+</option>
+
+<option value="3">
+March
+</option>
+
+<option value="4">
+April
+</option>
+
+<option value="5">
+May
+</option>
+
+<option
+value="6"
+selected>
+
+June
+
+</option>
+
+<option value="7">
+July
+</option>
+
+<option value="8">
+August
+</option>
+
+<option value="9">
+September
+</option>
+
+<option value="10">
+October
+</option>
+
+<option value="11">
+November
+</option>
+
+<option value="12">
+December
+</option>
+
+</select>
+
+</div>
+
+<div class="stat-card">
+
+<label
+class="
+block
+mb-2">
+
+Year
+
+</label>
+
+<input
+id="yearFilter"
+type="number"
+value="2026"
+class="input-modal">
+
+</div>
+
+<div class="stat-card">
+
+<label
+class="
+block
+mb-2">
+
+Search Member
+
+</label>
+
+<input
+id="searchMember"
+placeholder="Search..."
+class="input-modal">
+
+</div>
+
+</div>
+
+<!-- TABLE -->
+
+<div class="stat-card">
+
+<div class="overflow-x-auto">
+
+<table class="w-full">
+
+<thead>
+
+<tr
+class="
+border-b
+border-white/10">
+
+<th
+class="
+text-left
+py-4">
+
+Member
+
+</th>
+
+<th
+class="
+text-left
+py-4">
+
+Flat
+
+</th>
+
+<th
+class="
+text-left
+py-4">
+
+Amount
+
+</th>
+
+<th
+class="
+text-left
+py-4">
+
+Status
+
+</th>
+
+<th
+class="
+text-left
+py-4">
+
+Actions
+
+</th>
+
+</tr>
+
+</thead>
+
+<tbody
+id="paymentsTable">
+
+</tbody>
+
+</table>
+
+</div>
+
+</div>
+
+</main>
+
+<!-- PAYMENT HISTORY MODAL -->
+
+<div
+id="historyModal"
+class="
+fixed
+inset-0
+hidden
+items-center
+justify-center
+bg-black/60
+z-50">
+
+<div
+class="
+w-full
+max-w-3xl
+stat-card
+max-h-[80vh]
+overflow-auto">
+
+<div
+class="
+flex
+justify-between
+items-center
+mb-6">
+
+<h2
+class="
+text-2xl
+font-bold">
+
+Payment History
+
+</h2>
+
+<button
+id="closeHistoryModal"
+class="
+px-4 py-2
+rounded-lg
+bg-red-500
+hover:bg-red-600">
+
+Close
+
+</button>
+
+</div>
+
+<div
+id="historyContent">
+
+<p
+class="
+text-slate-400">
+
+Loading...
+
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+<script type="module">
+
+import "./assets/js/auth/authGuard.js";
+
+import {
+renderSidebar
+}
+from "./assets/js/components/sidebar.js";
+
+document
+.getElementById(
+"sidebar"
+)
+.innerHTML =
+renderSidebar();
+
+</script>
+
+<script
+type="module"
+src="assets/js/payments/payments.js">
+</script>
+
+</body>
+
+</html>

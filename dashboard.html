@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>Dashboard</title>
+
+<script src="https://cdn.tailwindcss.com"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<link rel="stylesheet"
+href="assets/css/animations.css">
+
+</head>
+
+<body class="dashboard-bg min-h-screen text-white">
+
+<div id="sidebar"></div>
+
+<main class="ml-72 p-8">
+
+<!-- HEADER -->
+
+<div
+class="flex items-center justify-between mb-10">
+
+<div>
+
+<h1
+class="text-5xl font-bold">
+Dashboard
+</h1>
+
+<p class="text-slate-400 mt-2">
+Society Overview
+</p>
+
+</div>
+
+<div
+class="
+w-14 h-14
+rounded-full
+bg-gradient-to-r
+from-violet-600
+to-cyan-500">
+</div>
+
+</div>
+
+<!-- FILTERS -->
+
+<div
+class="
+grid
+grid-cols-1
+md:grid-cols-2
+gap-6
+mb-8">
+
+<div class="stat-card">
+
+<label
+class="
+block
+mb-2
+text-slate-400">
+
+Month
+
+</label>
+
+<select
+id="dashboardMonth"
+class="input-modal">
+
+<option value="1">
+January
+</option>
+
+<option value="2">
+February
+</option>
+
+<option value="3">
+March
+</option>
+
+<option value="4">
+April
+</option>
+
+<option value="5">
+May
+</option>
+
+<option
+value="6"
+selected>
+
+June
+
+</option>
+
+<option value="7">
+July
+</option>
+
+<option value="8">
+August
+</option>
+
+<option value="9">
+September
+</option>
+
+<option value="10">
+October
+</option>
+
+<option value="11">
+November
+</option>
+
+<option value="12">
+December
+</option>
+
+</select>
+
+</div>
+
+<div class="stat-card">
+
+<label
+class="
+block
+mb-2
+text-slate-400">
+
+Year
+
+</label>
+
+<input
+id="dashboardYear"
+type="number"
+value="2026"
+class="input-modal">
+
+</div>
+
+</div>
+
+<!-- KPI CARDS -->
+
+<div
+class="
+grid
+grid-cols-1
+md:grid-cols-2
+xl:grid-cols-3
+2xl:grid-cols-6
+gap-6">
+
+<div class="stat-card">
+
+<p class="text-slate-400">
+Total Members
+</p>
+
+<h2
+id="totalMembers"
+class="
+text-5xl
+font-bold
+mt-4">
+
+0
+
+</h2>
+
+</div>
+
+<div class="stat-card">
+
+<p class="text-slate-400">
+Paid Members
+</p>
+
+<h2
+id="paidMembers"
+class="
+text-5xl
+font-bold
+mt-4">
+
+0
+
+</h2>
+
+</div>
+
+<div class="stat-card">
+
+<p class="text-slate-400">
+Partial Members
+</p>
+
+<h2
+id="partialMembers"
+class="
+text-5xl
+font-bold
+mt-4">
+
+0
+
+</h2>
+
+</div>
+
+<div class="stat-card">
+
+<p class="text-slate-400">
+Unpaid Members
+</p>
+
+<h2
+id="unpaidMembers"
+class="
+text-5xl
+font-bold
+mt-4">
+
+0
+
+</h2>
+
+</div>
+
+<div class="stat-card">
+
+<p class="text-slate-400">
+Collection Amount
+</p>
+
+<h2
+id="collectionAmount"
+class="
+text-5xl
+font-bold
+mt-4">
+
+₹0
+
+</h2>
+
+</div>
+
+<div class="stat-card">
+
+<p class="text-slate-400">
+Collection %
+</p>
+
+<h2
+id="collectionPercentage"
+class="
+text-5xl
+font-bold
+mt-4">
+
+0%
+
+</h2>
+
+</div>
+
+</div>
+
+<!-- CONTENT -->
+
+<div
+class="
+grid
+grid-cols-1
+xl:grid-cols-3
+gap-8
+mt-8">
+
+<!-- CHART -->
+
+<div
+class="
+xl:col-span-2
+stat-card">
+
+<div
+class="
+flex
+justify-between
+items-center
+mb-6">
+
+<h2
+class="
+text-xl
+font-semibold">
+
+Collection Analytics
+
+</h2>
+
+<span
+id="chartPeriod"
+class="text-slate-400">
+
+2026
+
+</span>
+
+</div>
+
+<div
+style="
+height:350px">
+
+<canvas
+id="collectionChart">
+</canvas>
+
+</div>
+
+</div>
+
+<!-- RECENT ACTIVITY -->
+
+<div
+class="stat-card">
+
+<h2
+class="
+text-xl
+font-semibold
+mb-6">
+
+Recent Activity
+
+</h2>
+
+<div
+id="recentActivities"
+class="
+space-y-4">
+
+<p
+class="
+text-slate-400">
+
+Loading...
+
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</main>
+
+<script type="module">
+
+import "./assets/js/auth/authGuard.js";
+
+import {
+renderSidebar
+}
+from "./assets/js/components/sidebar.js";
+
+document
+.getElementById(
+"sidebar"
+)
+.innerHTML =
+renderSidebar();
+
+</script>
+
+<script
+type="module"
+src="assets/js/dashboard/dashboard.js">
+</script>
+
+</body>
+
+</html>

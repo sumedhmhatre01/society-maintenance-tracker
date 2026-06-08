@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>Settings</title>
+
+<script src="https://cdn.tailwindcss.com"></script>
+
+<link rel="stylesheet"
+href="assets/css/animations.css">
+
+</head>
+
+<body class="dashboard-bg min-h-screen text-white">
+
+<div id="sidebar"></div>
+
+<main class="ml-72 p-8">
+
+<div class="mb-10">
+
+<h1 class="text-5xl font-bold">
+Settings
+</h1>
+
+<p class="text-slate-400 mt-2">
+Manage Society Information
+</p>
+
+</div>
+
+<div class="stat-card max-w-4xl">
+
+<form id="settingsForm">
+
+<div class="grid md:grid-cols-2 gap-6">
+
+<div>
+
+<label class="block mb-2 text-slate-400">
+Society Name
+</label>
+
+<input
+id="societyName"
+class="input-modal"
+placeholder="Enter Society Name">
+
+</div>
+
+<div>
+
+<label class="block mb-2 text-slate-400">
+Maintenance Amount
+</label>
+
+<input
+id="maintenanceAmount"
+type="number"
+class="input-modal"
+placeholder="2000">
+
+</div>
+
+<div>
+
+<label class="block mb-2 text-slate-400">
+Admin Name
+</label>
+
+<input
+id="adminName"
+class="input-modal">
+
+</div>
+
+<div>
+
+<label class="block mb-2 text-slate-400">
+Admin Phone
+</label>
+
+<input
+id="adminPhone"
+class="input-modal">
+
+</div>
+
+</div>
+
+<div class="mt-6">
+
+<label class="block mb-2 text-slate-400">
+Society Address
+</label>
+
+<textarea
+id="societyAddress"
+rows="4"
+class="input-modal"></textarea>
+
+</div>
+
+<button
+type="submit"
+class="
+mt-6
+px-6 py-3
+rounded-xl
+bg-gradient-to-r
+from-violet-600
+to-cyan-500">
+
+Save Settings
+
+</button>
+
+</form>
+
+</div>
+
+</main>
+
+<script type="module">
+
+import "./assets/js/auth/authGuard.js";
+
+import { renderSidebar }
+from "./assets/js/components/sidebar.js";
+
+document
+.getElementById("sidebar")
+.innerHTML =
+renderSidebar();
+
+</script>
+
+<script
+type="module"
+src="assets/js/settings/settings.js">
+</script>
+
+</body>
+
+</html>
